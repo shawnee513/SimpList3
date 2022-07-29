@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/dell/AndroidStudioProjects/SimpList3/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.257" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/SimpList3/app/src/main/res/drawable/ic_baseline_list_alt_24.xml" value="0.257" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/SimpList3/app/src/main/res/drawable/ic_baseline_shopping_cart_24.xml" value="0.257" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/SimpList3/app/src/main/res/drawable/ic_baseline_store_24.xml" value="0.257" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/SimpList3/app/src/main/res/layout/activity_main.xml" value="0.2767210144927536" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/SimpList3/app/src/main/res/layout/fragment_items.xml" value="0.25" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/SimpList3/app/src/main/res/layout/fragment_shop.xml" value="0.2767210144927536" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/SimpList3/app/src/main/res/layout/fragment_store_set_up.xml" value="0.2767210144927536" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

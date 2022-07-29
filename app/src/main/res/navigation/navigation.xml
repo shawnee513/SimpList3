@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/itemsFragment">
+
+    <fragment
+        android:id="@+id/itemsFragment"
+        android:name="com.example.simplist3.ItemsFragment"
+        android:label="fragment_items"
+        tools:layout="@layout/fragment_items" >
+        <action
+            android:id="@+id/action_itemsFragment_to_storeSetUpFragment"
+            app:destination="@id/storeSetUpFragment" />
+        <action
+            android:id="@+id/action_itemsFragment_to_shopFragment"
+            app:destination="@id/shopFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shopFragment"
+        android:name="com.example.simplist3.ShopFragment"
+        android:label="fragment_shop"
+        tools:layout="@layout/fragment_shop" >
+        <action
+            android:id="@+id/action_shopFragment_to_itemsFragment"
+            app:destination="@id/itemsFragment" />
+        <action
+            android:id="@+id/action_shopFragment_to_storeSetUpFragment"
+            app:destination="@id/storeSetUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/storeSetUpFragment"
+        android:name="com.example.simplist3.StoreSetUpFragment"
+        android:label="fragment_store_set_up"
+        tools:layout="@layout/fragment_store_set_up" >
+        <action
+            android:id="@+id/action_storeSetUpFragment_to_shopFragment"
+            app:destination="@id/shopFragment" />
+        <action
+            android:id="@+id/action_storeSetUpFragment_to_itemsFragment"
+            app:destination="@id/itemsFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/items_rv_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_sienna"
+    tools:context=".ItemsFragment">
+
+    <ImageButton
+        android:id="@+id/items_bt_list_nav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/ivory"
+        android:contentDescription="@string/list_icon_description"
+        android:src="@drawable/ic_baseline_list_alt_24"
+        app:layout_constraintEnd_toStartOf="@+id/items_bt_shop_nav"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/items_bt_shop_nav" />
+
+    <ImageButton
+        android:id="@+id/items_bt_shop_nav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/ivory"
+        android:contentDescription="@string/shopping_cart_description"
+        android:src="@drawable/ic_baseline_shopping_cart_24"
+        app:layout_constraintBottom_toBottomOf="@+id/list_bt_store_nav"
+        app:layout_constraintEnd_toStartOf="@+id/list_bt_store_nav"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/items_bt_list_nav"
+        app:layout_constraintTop_toTopOf="@+id/list_bt_store_nav" />
+
+    <ImageButton
+        android:id="@+id/list_bt_store_nav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/ivory"
+        android:contentDescription="@string/store_icon_description"
+        android:src="@drawable/ic_baseline_store_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/items_bt_shop_nav" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="25dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:background="@color/ivory"
+        app:layout_constraintBottom_toTopOf="@+id/items_bt_list_nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/placeholder_text_items"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="@+id/recyclerView"
+        app:layout_constraintTop_toTopOf="@+id/recyclerView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
