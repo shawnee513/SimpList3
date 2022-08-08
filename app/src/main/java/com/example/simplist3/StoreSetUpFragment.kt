@@ -16,10 +16,6 @@ class StoreSetUpFragment : Fragment() {
     ): View? {
         binding = FragmentStoreSetUpBinding.inflate(inflater)
 
-        //set on click listeners
-        binding.storeBtListNav.setOnClickListener { findNavController().navigate(StoreSetUpFragmentDirections.actionStoreSetUpFragmentToItemsFragment())}
-        binding.storeBtShopNav.setOnClickListener { findNavController().navigate(StoreSetUpFragmentDirections.actionStoreSetUpFragmentToShopFragment())}
-
         // Inflate the layout for this fragment
         return binding.root
     }
