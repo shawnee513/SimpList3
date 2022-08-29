@@ -25,10 +25,4 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
         binding.bottomNav.setupWithNavController(navController)
     }
-
-    //Defines what to do when menu item is selected
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val navController = findNavController(R.id.fragmentContainerView)
-        return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
-    }
 }
