@@ -9,10 +9,9 @@ data class StoreLocation (
     @PrimaryKey(autoGenerate = true)
     var storeLocationId: Long = 0L,
 
-    @ColumnInfo(name = "store_location_first")
-    var storeLocationFirst: Boolean = false,
+    @ColumnInfo(name = "store_location_name")
+    var storeLocationName: String = "",
 
-    //This will tell us which storeLocationId comes next
-    @ColumnInfo(name = "store_location_next")
-    var storeLocationNext: Long = 0L,
+    @ColumnInfo(name = "store_location_rank")
+    var storeLocationRank: Int = 0,
 )

@@ -9,10 +9,9 @@ data class HouseLocation (
     @PrimaryKey(autoGenerate = true)
     var houseLocationId: Long = 0L,
 
-    @ColumnInfo(name = "house_location_first")
-    var houseLocationFirst: Boolean = false,
+    @ColumnInfo(name = "house_location_name")
+    var houseLocationName: String = "",
 
-    //This will tell us which houseLocationId comes next
-    @ColumnInfo(name = "house_location_next")
-    var houseLocationNext: Long = 0L,
+    @ColumnInfo(name = "house_location_rank")
+    var houseLocationRank: Int = 0,
 )

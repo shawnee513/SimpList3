@@ -15,7 +15,7 @@ interface ItemDao {
     suspend fun delete(item: Item)
 
     //Gets all of the items at the specified store location
-    @Query("SELECT item_name, item_qty FROM item_table WHERE item_store_location_id = :itemStoreLocationId")
+    @Query("SELECT * FROM item_table WHERE item_store_location_id = :itemStoreLocationId")
     fun getItemsInStoreLocation(itemStoreLocationId: Long): LiveData<List<Item>>
 
     //Gets all of the items at the specified house location

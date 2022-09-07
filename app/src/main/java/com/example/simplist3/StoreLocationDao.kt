@@ -15,6 +15,9 @@ interface StoreLocationDao {
     suspend fun delete(storeLocation: StoreLocation)
 
     //Gets the next store location
-    @Query("SELECT * FROM store_location_table WHERE storeLocationId = :storeLocationNext")
-    fun get(storeLocationNext: Long): StoreLocation
+    @Query("SELECT * FROM store_location_table WHERE storeLocationId = :storeLocationId")
+    fun get(storeLocationId: Long): LiveData<StoreLocation>
+
+    @Query("SELECT * FROM store_location_table ORDER BY store_location_rank")
+    fun getAll(): LiveData<List<StoreLocation>>
 }
