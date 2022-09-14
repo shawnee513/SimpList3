@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.simplist3.databinding.FragmentStoreSetUpBinding
 import androidx.lifecycle.Observer
+import com.example.simplist3.databinding.StoreLocationItemBinding
 
 class StoreSetUpFragment : Fragment() {
     private lateinit var binding: FragmentStoreSetUpBinding
@@ -23,8 +24,8 @@ class StoreSetUpFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.i("test", "in store set up fragment")
         binding = FragmentStoreSetUpBinding.inflate(inflater)
+        Log.i("test", "logcat is working")
 
         //build the database if it doesn't already exist and get a reference to the StoreLocationDao
         val application = requireNotNull(this.activity).application
@@ -34,28 +35,34 @@ class StoreSetUpFragment : Fragment() {
         viewModelFactory = StoreSetUpViewModelFactory(dao)
         viewModel = ViewModelProvider(this, viewModelFactory).get(StoreSetUpViewModel::class.java)
 
-        Log.i("test", "created binding and viewmodel")
-        //set observers
-        viewModel.locationsString.observe(viewLifecycleOwner, Observer {locations ->
-            Log.i("test", "data observed as changed")
-            binding.storeSetUpTvStoreLocationList.text = locations
-            Log.i("test", "text: $locations")
-            binding.storeSetUpEtLocationName.setText("")
-            hideKeyboard()
-        })
-        Log.i("test", "set observer")
         //set onclick listeners
         binding.storeSetUpBtAdd.setOnClickListener { addLocation() }
-        Log.i("test", "set listeners")
+
+        //connect the adapter to the recycler view
+        val adapter = StoreLocationItemAdapter (
+            { storeLocationId, rank, name -> viewModel.lowerRank(storeLocationId, rank, name)},
+            {storeLocationId, rank, name -> viewModel.higherRank(storeLocationId, rank, name) },
+            {storeLocationId -> viewModel.onStoreLocationClicked(storeLocationId)})
+
+        binding.storeSetUpRvStoreLocationList.adapter = adapter
+
+        //set observer and give to adapter
+        viewModel.locations.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                //the way of doing it before using DiffUtil
+                /*adapter.data = it*/
+                //now the way to do it using DiffUtil - passing new data to the adapter's backing list
+                adapter.submitList(it)
+            }
+        })
+
         // Inflate the layout for this fragment
         return binding.root
     }
 
     private fun addLocation() {
-        Log.i("test", "in add location in fragment")
         viewModel.newStoreLocationName = binding.storeSetUpEtLocationName.text.toString()
         viewModel.addLocation()
-        Log.i("test", "finished add location in fragment")
     }
 
     fun hideKeyboard() {

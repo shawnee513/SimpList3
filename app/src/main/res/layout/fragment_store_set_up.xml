@@ -1,95 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".StoreSetUpFragment">
-
 
     <EditText
         android:id="@+id/storeSetUp_et_locationName"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="3dp"
         android:hint="Enter location name:"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/storeSetUp_tv_storeLocationList"
-        app:layout_constraintEnd_toStartOf="@+id/storeSetUp_bt_add"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        android:textSize="20sp"/>
 
     <Button
         android:id="@+id/storeSetUp_bt_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Add"
-        app:layout_constraintBottom_toTopOf="@+id/storeSetUp_bt_move"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/storeSetUp_et_locationName"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <ScrollView
-        android:id="@+id/scrollView2"
+        android:text="Add" />
+    <!-- the layout manager specifies how the items will be positioned
+        in this case, a vertical list with full-length rows
+        other options are GridLayoutManager, StaggeredGridLayoutManater
+        spanCount specifies the number of columns-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/storeSetUp_rv_storeLocationList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toTopOf="@id/storeSetUp_et_locationToMove"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/storeSetUp_et_locationName">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/storeSetUp_tv_storeLocationList"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/placeholder_text_store"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-        </LinearLayout>
-    </ScrollView>
-
-    <EditText
-        android:id="@+id/storeSetUp_et_locationToMove"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Move Location"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/storeSetUp_et_locationPrior"
-        android:layout_width="131dp"
-        android:layout_height="wrap_content"
-        android:hint="after location"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/storeSetUp_bt_move"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/storeSetUp_et_locationToMove"
-        app:layout_constraintTop_toBottomOf="@+id/storeSetUp_bt_add" />
-
-    <Button
-        android:id="@+id/storeSetUp_bt_move"
-        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="Move"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/storeSetUp_et_locationPrior"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/storeSetUp_et_locationPrior"
-        app:layout_constraintStart_toStartOf="@+id/storeSetUp_et_locationPrior"
-        app:layout_constraintTop_toBottomOf="@+id/storeSetUp_bt_add" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_weight="1"
+        android:layout_gravity="top"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:spanCount="2"/>
+</LinearLayout>
