@@ -18,6 +18,9 @@ class StoreSetUpViewModel (val dao: StoreLocationDao) : ViewModel() {
     private val _navigateToStoreLocation = MutableLiveData<Long?>()
     val navigateToStoreLocation: LiveData<Long?> get() = _navigateToStoreLocation
 
+    private val _navigateToSetUp = MutableLiveData<Boolean>()
+    val navigateToSetUp: LiveData<Boolean> get() = _navigateToSetUp
+
     fun addLocation() {
         //launch the coroutine in the same scope as the view model
         viewModelScope.launch{
@@ -50,6 +53,14 @@ class StoreSetUpViewModel (val dao: StoreLocationDao) : ViewModel() {
         viewModelScope.launch{
             dao.update(location)
         }
+    }
+
+    fun navigateToSetUp() {
+        _navigateToSetUp.value = true
+    }
+
+    fun navigatedToSetUp() {
+        _navigateToSetUp.value = false
     }
 
    /* //formats a list of tasks as a String.

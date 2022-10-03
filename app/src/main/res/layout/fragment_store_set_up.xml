@@ -32,4 +32,9 @@
         android:layout_gravity="top"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:spanCount="2"/>
+    <Button
+        android:id="@+id/storeSetUp_bt_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Done" />
 </LinearLayout>

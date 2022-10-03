@@ -36,7 +36,16 @@ class StoreSetUpFragment : Fragment() {
         viewModel = ViewModelProvider(this, viewModelFactory).get(StoreSetUpViewModel::class.java)
 
         //set onclick listeners
-        binding.storeSetUpBtAdd.setOnClickListener { addLocation() }
+        binding.storeSetUpBtAdd.setOnClickListener { addLocation(); hideKeyboard() }
+        binding.storeSetUpBtDone.setOnClickListener { viewModel.navigateToSetUp() }
+
+        //observers
+        viewModel.navigateToSetUp.observe(viewLifecycleOwner, Observer { navigate ->
+            if(navigate){
+                findNavController().navigate(StoreSetUpFragmentDirections.actionStoreSetUpFragmentToSetUpFragment())
+                viewModel.navigatedToSetUp()
+            }
+        })
 
         //connect the adapter to the recycler view
         val adapter = StoreLocationItemAdapter (

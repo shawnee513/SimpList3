@@ -9,15 +9,56 @@
         android:id="@+id/itemsFragment"
         android:name="com.example.simplist3.ItemsFragment"
         android:label="fragment_items"
-        tools:layout="@layout/fragment_items" />
+        tools:layout="@layout/fragment_items" >
+        <action
+            android:id="@+id/action_itemsFragment_to_shopFragment"
+            app:destination="@id/shopFragment" />
+    </fragment>
     <fragment
         android:id="@+id/shopFragment"
         android:name="com.example.simplist3.ShopFragment"
         android:label="fragment_shop"
-        tools:layout="@layout/fragment_shop" />
+        tools:layout="@layout/fragment_shop" >
+        <action
+            android:id="@+id/action_shopFragment_to_itemsFragment"
+            app:destination="@id/itemsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/storeSetUpFragment"
         android:name="com.example.simplist3.StoreSetUpFragment"
         android:label="fragment_store_set_up"
-        tools:layout="@layout/fragment_store_set_up" />
+        tools:layout="@layout/fragment_store_set_up" >
+        <action
+            android:id="@+id/action_storeSetUpFragment_to_setUpFragment"
+            app:destination="@id/setUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/setUpFragment"
+        android:name="com.example.simplist3.SetUpFragment"
+        android:label="fragment_set_up"
+        tools:layout="@layout/fragment_set_up" >
+        <action
+            android:id="@+id/action_setUpFragment_to_storeSetUpFragment"
+            app:destination="@id/storeSetUpFragment" />
+        <action
+            android:id="@+id/action_setUpFragment_to_houseSetUpFragment"
+            app:destination="@id/houseSetUpFragment" />
+        <action
+            android:id="@+id/action_setUpFragment_to_itemSetUpFragment"
+            app:destination="@id/itemSetUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/houseSetUpFragment"
+        android:name="com.example.simplist3.HouseSetUpFragment"
+        android:label="fragment_house_set_up"
+        tools:layout="@layout/fragment_house_set_up" />
+    <fragment
+        android:id="@+id/itemSetUpFragment"
+        android:name="com.example.simplist3.ItemSetUpFragment"
+        android:label="fragment_item_set_up"
+        tools:layout="@layout/fragment_item_set_up" >
+        <action
+            android:id="@+id/action_itemSetUpFragment_to_setUpFragment"
+            app:destination="@id/setUpFragment" />
+    </fragment>
 </navigation>
